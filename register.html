@@ -1,0 +1,178 @@
+<html>
+    <head>
+        <title>Alexandria Celefi Hotel - Room Booking</title>
+        <style>
+            body {
+                font-family: 'Georgia', serif;
+                background-color: #fdfcf8;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                box-sizing: border-box;
+                color: #333;
+            }
+    
+            .container {
+                background-color: #fff;
+                padding: 30px;
+                border-radius: 15px;
+                width: 100%;
+                max-width: 450px;
+                border: 3px solid gold;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+                text-align: center;
+            }
+    
+            h1 {
+                font-size: 28px;
+                color: gold;
+            }
+    
+            .welcome-message {
+                font-size: 18px;
+                color: #555;
+                margin-bottom: 20px;
+            }
+    
+            table {
+                width: 100%;
+                margin: 0 auto;
+                border-spacing: 10px;
+            }
+    
+            td {
+                text-align: left;
+                padding: 5px;
+            }
+    
+            label {
+                font-weight: bold;
+                color: black;
+            }
+    
+            input {
+                padding: 10px;
+                font-size: 15px;
+                border: 1px solid gold;
+                border-radius: 5px;
+                width: 100%;
+                box-sizing: border-box;
+                background-color: #f9f6f1;
+            }
+    
+            input:focus {
+                outline: none;
+                border-color: #333;
+            }
+    
+            button {
+                background-color: gold;
+                color: black;
+                border: none;
+                padding: 12px;
+                font-size: 16px;
+                font-weight: bold;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease, transform 0.2s ease;
+            }
+    
+            button:hover {
+                background-color: #f8d878;
+                transform: scale(1.05);
+            }
+    
+            .confirmation-message {
+                margin-top: 20px;
+                padding: 15px;
+                background-color: #fdf3e1;
+                border: 2px solid gold;
+                text-align: center;
+                color: #333;
+                border-radius: 10px;
+                font-size: 18px;
+            }
+    
+            .back-button {
+                margin-top: 20px;
+                display: block;
+                background-color: black;
+                color: gold;
+                font-size: 16px;
+                text-align: center;
+                padding: 10px;
+                border-radius: 5px;
+                text-decoration: none;
+                transition: background-color 0.3s ease;
+            }
+    
+            .back-button:hover {
+                background-color: #333;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Room Booking</h1>
+            <p class="welcome-message">Welcome to our Celefi Hotel! You can book a room now and enjoy luxury. </p>
+            
+            <form id="bookingForm">
+                <table>
+                    <tr>
+                        <td><label for="name">Name:</label></td>
+                        <td><input type="text" id="name" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="roomNumber">Room Number:</label></td>
+                        <td><input type="text" id="roomNumber" required></td> 
+                    </tr>
+                    <tr>
+                        <td><label for="dateOfBooking">Date of Booking:</label></td>
+                        <td><input type="date" id="dateOfBooking" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="dateOfLeaving">Date of Leaving:</label></td>
+                        <td><input type="date" id="dateOfLeaving" required></td>
+                    </tr>
+                </table>
+                <button type="submit">Book Room</button>
+            </form>
+    
+            <p id="confirmingMessage" class="confirmation-message"></p>
+               
+            <a href="index.html" class="back-button">Back to Home</a>
+        </div>
+    
+        <script>
+            document.getElementById('bookingForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                const name = document.getElementById('name').value;
+                const roomNumber = parseInt(document.getElementById('roomNumber').value, 10); // Room number 
+                const dateOfBooking = new Date(document.getElementById('dateOfBooking').value);
+                const dateOfLeaving = new Date(document.getElementById('dateOfLeaving').value);
+                
+                // Calculate the total number of nights
+                const totalNights = (dateOfLeaving - dateOfBooking) / (1000 * 3600 * 24);
+                    
+                // Validate room number
+                if (isNaN(roomNumber) || roomNumber < 1) {
+                    document.getElementById('confirmingMessage').innerText = 'Please enter a valid positive room number.';
+                    return;
+                }
+    
+                // Validate dates
+                if (dateOfLeaving <= dateOfBooking) {
+                    document.getElementById('confirmingMessage').innerText = 'Date of leaving must be later than the date of booking.';
+                    return;
+                }
+                 // Calculate the total price based on nights
+                 const totalPrice = totalNights <= 4? 1000:500*totalNights;
+                // Display confirmation message
+                document.getElementById('confirmingMessage').innerText=`Room ${roomNumber} has been booked for ${name} from ${dateOfBooking.toLocaleDateString()} to ${dateOfLeaving.toLocaleDateString()}.Total price: ${totalPrice} EGP.`;
+            });
+        </script>
+    </body>

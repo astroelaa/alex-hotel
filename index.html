@@ -1,0 +1,135 @@
+<html>
+<head>
+    <title>Alexandria Celefi Hotel - Home</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fdf9f1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .navbar {
+            background-color: #1d1d1d;
+            color: white;
+            padding: 20px 40px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 32px;
+            letter-spacing: 2px;
+            color: gold;
+        }
+
+        .navbar img {
+            height: 60px;
+            border-radius: 50%;
+        }
+
+        .home-content {
+            text-align: center;
+            padding: 20px;
+            margin-top: 60px;
+        }
+
+        .home-content p {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #555;
+            font-weight: 300;
+            margin-bottom: 40px;
+        }
+
+        .date-section {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .button-section {
+            display: flex;
+            gap: 20px;
+            margin: 30px 0;
+            justify-content: center;
+        }
+
+        .button-section a {
+            text-decoration: none;
+            padding: 15px 30px;
+            background-color: #b08e00;
+            color: white;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 18px;
+            text-transform: uppercase;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .button-section a:hover {
+            background-color: #f2bb1e;
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            background-color: #1d1d1d;
+            color: white;
+            padding: 15px 0;
+            width: 100%;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>Alexandria Celefi Hotel</h1>
+        <img src="images/logo.jpg" alt="Hotel Logo">
+    </div>
+
+    <!-- Current Date Section -->
+    <div class="date-section">
+        <p id="currentDate"></p> <!-- Today's date will show here -->
+    </div>
+
+    <div class="home-content">
+        <p>Welcome to Alexandria Celefi Hotel, where luxury meets comfort. Enjoy breathtaking views, exquisite dining, and the best hospitality experience.</p>
+    </div>
+
+    <!-- Buttons connecting pages -->
+    <div class="button-section">
+        <a href="register.html">Book a Room</a>
+        <a href="aboutpage.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="gallery.html">Gallery</a>
+    </div>
+
+    <footer>
+        &copy; 2024 Alexandria Celefi Hotel. All Rights Reserved.
+    </footer>
+
+    <script>
+        // Display current date
+        const currentDate = new Date();
+        const dateString = currentDate.toLocaleDateString(); // formats the date
+        document.getElementById('currentDate').innerText = `Today's date: ${dateString}`;
+    </script>
+</body>
+</html>

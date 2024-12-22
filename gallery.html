@@ -1,0 +1,116 @@
+<html>
+<head>
+    <title>Alexandria Celefi Hotel - Gallery</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #f9f4f1;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .navbar {
+            background-color: #1d1d1d;
+            color: white;
+            padding: 20px 40px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 32px;
+            color: gold;
+            letter-spacing: 3px;
+        }
+
+        .navbar img {
+            height: 60px;
+            border-radius: 50%;
+        }
+
+        .gallery-content {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .gallery-content h2 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #1d1d1d;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .gallery-content img {
+            width: 100%;
+            height: auto;
+            margin: 15px;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-content img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            margin-top: 20px;
+            background-color: #b08e00;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 30px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-btn:hover {
+            background-color: #f2bb1e;
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            background-color: #1d1d1d;
+            color: white;
+            padding: 15px 0;
+            width: 100%;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>Alexandria Celefi Hotel</h1>
+        <img src="images/logo.jpg" alt="Hotel Logo">
+    </div>
+
+    <div class="gallery-content">
+        <h2>Gallery</h2>
+        <img src="images/room.jpg" alt="Room Image 1">
+        <img src="images/roomfancy.jpg" alt="Room Image 2">
+        <a href="index.html" class="back-btn">Back to Home</a>
+    </div>
+
+    <footer>
+        &copy; 2024 Alexandria Celefi Hotel. All Rights Reserved.
+    </footer>
+</body>
+</html>
