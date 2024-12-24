@@ -155,23 +155,22 @@
                 const dateOfBooking = new Date(document.getElementById('dateOfBooking').value);
                 const dateOfLeaving = new Date(document.getElementById('dateOfLeaving').value);
                 
-                // Calculate the total number of nights
                 const totalNights = (dateOfLeaving - dateOfBooking) / (1000 * 3600 * 24);
                     
-                // Validate room number
+                
                 if (isNaN(roomNumber) || roomNumber < 1) {
                     document.getElementById('confirmingMessage').innerText = 'Please enter a valid positive room number.';
                     return;
                 }
     
-                // Validate dates
+            
                 if (dateOfLeaving <= dateOfBooking) {
                     document.getElementById('confirmingMessage').innerText = 'Date of leaving must be later than the date of booking.';
                     return;
                 }
-                 // Calculate the total price based on nights
+        
                  const totalPrice = totalNights <= 4? 1000:500*totalNights;
-                // Display confirmation message
+            
                 document.getElementById('confirmingMessage').innerText=`Room ${roomNumber} has been booked for ${name} from ${dateOfBooking.toLocaleDateString()} to ${dateOfLeaving.toLocaleDateString()}.Total price: ${totalPrice} EGP.`;
             });
         </script>
